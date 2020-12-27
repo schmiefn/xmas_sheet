@@ -16,12 +16,15 @@ public class App extends Application {
         final TicTacToeGame game = new TicTacToeGame();
         final TicTacToeFrame frame = new TicTacToeFrame(game);
         final Scene defaultScene = new Scene(frame);
+        game.giveMeMyFrame(frame);
 
         primaryStage.setTitle("XMas TicTacToe");
-        primaryStage.setWidth(450);
-        primaryStage.setHeight(200);
+        primaryStage.setWidth(316);
+        primaryStage.setHeight(360);
+        primaryStage.setResizable(false);
         primaryStage.setScene(defaultScene);
         primaryStage.show();
+        
     }
 
     public static void main(final String[] args) {
