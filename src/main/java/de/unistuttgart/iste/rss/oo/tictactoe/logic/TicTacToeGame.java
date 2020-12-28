@@ -64,14 +64,16 @@ public class TicTacToeGame {
     	Optional<Player> player = Optional.empty();
     	Symbol rowSymbol = Symbol.NONE;
     	Symbol columnSymbol = Symbol.NONE;
+    	Symbol diagonalSymbol = Symbol.NONE;
     	for (int i=0;i<3;i++) {
     		rowSymbol = getDominantSymbolInRow(i);
     		columnSymbol = getDominantSymbolInColumn(i);
-    		if (rowSymbol == Symbol.CIRCLE || columnSymbol == Symbol.CIRCLE) {
+    		diagonalSymbol = getDominantSymbolInDiagonal();
+    		if (rowSymbol == Symbol.CIRCLE || columnSymbol == Symbol.CIRCLE || diagonalSymbol == Symbol.CIRCLE) {
     			System.out.println("Circle win");
         		return(Optional.of(player2));
         	}
-        	if (rowSymbol == Symbol.CROSS || columnSymbol == Symbol.CROSS) {
+        	if (rowSymbol == Symbol.CROSS || columnSymbol == Symbol.CROSS || diagonalSymbol == Symbol.CROSS) {
         		System.out.println("Cross win");
         		return(Optional.of(player1));
         	}
@@ -141,6 +143,39 @@ public class TicTacToeGame {
     	}else {
     		return Symbol.NONE;
     	}	
+    }
+    
+    private Symbol getDominantSymbolInDiagonal() {
+    	int checksum = 0;
+    	for (int i=0;i<3;i++) {
+    		if (field[i][i]==Symbol.CIRCLE) {
+    			checksum++;
+    		}else if (field[i][i]==Symbol.CROSS) {
+    			checksum--;
+    		}
+    	}
+    	
+    	if (checksum==3) {
+    		return Symbol.CIRCLE;
+    	}else if (checksum==-3) {
+    		return Symbol.CROSS;
+    	}
+    	checksum=0;
+    	for (int i=0;i<3;i++) {
+    		if (field[2-i][i]==Symbol.CIRCLE) {
+    			checksum++;
+    		}else if (field[2-i][i]==Symbol.CROSS) {
+    			checksum--;
+    		}
+    	}
+    	
+    	if (checksum==3) {
+    		return Symbol.CIRCLE;
+    	}else if (checksum==-3) {
+    		return Symbol.CROSS;
+    	}else {
+    		return Symbol.NONE;
+    	}
     }
 
     public void giveMeMyFrame (final TicTacToeFrame frame) {
