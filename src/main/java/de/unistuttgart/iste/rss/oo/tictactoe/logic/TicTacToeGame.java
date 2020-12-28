@@ -55,20 +55,7 @@ public class TicTacToeGame {
     
     
     public void setGameForNextMove(final Symbol inputSymbol, int row, int column) {	
-    	field[row][column] = inputSymbol; 
-    	Optional<Player> winner = getWinner();
-    	if (!winner.isEmpty()) {
-    		isGameInProgress = false;
-    		writeMessageOnUI(winner.get().getName()+" hat gewonnen!");
-    	}else if (isBoardFull()) {
-    		isGameInProgress = false;
-    		writeMessageOnUI("Unentschieden!");
-    	}
-    	
-    	if (isGameInProgress) {
-    		toggleActivePlayer();
-    		writeMessageOnUI(activePlayer.getName() +" muss spielen!");	
-    	}
+
     	
     }
     
@@ -78,26 +65,7 @@ public class TicTacToeGame {
      * gibt und den Player speichern soll, der das Spiel gewonnen hat.
      */
     private Optional<Player> getWinner () {
-<<<<<<< HEAD
-=======
-    	Optional<Player> player = Optional.empty();
-    	Symbol rowSymbol = Symbol.NONE;
-    	Symbol columnSymbol = Symbol.NONE;
-    	Symbol diagonalSymbol = Symbol.NONE;
-    	for (int i=0;i<3;i++) {
-    		rowSymbol = getDominantSymbolInRow(i);
-    		columnSymbol = getDominantSymbolInColumn(i);
-    		diagonalSymbol = getDominantSymbolInDiagonal();
-    		if (rowSymbol == Symbol.CIRCLE || columnSymbol == Symbol.CIRCLE || diagonalSymbol == Symbol.CIRCLE) {
-    			System.out.println("Circle win");
-        		return(Optional.of(player2));
-        	}
-        	if (rowSymbol == Symbol.CROSS || columnSymbol == Symbol.CROSS || diagonalSymbol == Symbol.CROSS) {
-        		System.out.println("Cross win");
-        		return(Optional.of(player1));
-        	}
-    	}
->>>>>>> 9f612da41d7f44016463b0b35051ca3773636a54
+
     	
     }
     
@@ -152,62 +120,12 @@ public class TicTacToeGame {
     
     private Symbol getDominantSymbolInDiagonal() {
     	
-    	}
-    	
-    	if (checksum==3) {
-    		return Symbol.CIRCLE;
-    	}else if (checksum==-3) {
-    		return Symbol.CROSS;
-    	}
-    	checksum=0;
-    	for (int i=0;i<3;i++) {
-    		if (field[2-i][i]==Symbol.CIRCLE) {
-    			checksum++;
-    		}else if (field[2-i][i]==Symbol.CROSS) {
-    			checksum--;
-    		}
-    	}
-    	
-    	if (checksum==3) {
-    		return Symbol.CIRCLE;
-    	}else if (checksum==-3) {
-    		return Symbol.CROSS;
-    	}else {
-    		return Symbol.NONE;
-    	}
     }
+    	
+    	
     
     private Symbol getDominantSymbolInDiagonal() {
-    	int checksum = 0;
-    	for (int i=0;i<3;i++) {
-    		if (field[i][i]==Symbol.CIRCLE) {
-    			checksum++;
-    		}else if (field[i][i]==Symbol.CROSS) {
-    			checksum--;
-    		}
-    	}
     	
-    	if (checksum==3) {
-    		return Symbol.CIRCLE;
-    	}else if (checksum==-3) {
-    		return Symbol.CROSS;
-    	}
-    	checksum=0;
-    	for (int i=0;i<3;i++) {
-    		if (field[2-i][i]==Symbol.CIRCLE) {
-    			checksum++;
-    		}else if (field[2-i][i]==Symbol.CROSS) {
-    			checksum--;
-    		}
-    	}
-    	
-    	if (checksum==3) {
-    		return Symbol.CIRCLE;
-    	}else if (checksum==-3) {
-    		return Symbol.CROSS;
-    	}else {
-    		return Symbol.NONE;
-    	}
     }
 
     
