@@ -182,6 +182,39 @@ public class TicTacToeGame {
     		return Symbol.NONE;
     	}
     }
+    
+    private Symbol getDominantSymbolInDiagonal() {
+    	int checksum = 0;
+    	for (int i=0;i<3;i++) {
+    		if (field[i][i]==Symbol.CIRCLE) {
+    			checksum++;
+    		}else if (field[i][i]==Symbol.CROSS) {
+    			checksum--;
+    		}
+    	}
+    	
+    	if (checksum==3) {
+    		return Symbol.CIRCLE;
+    	}else if (checksum==-3) {
+    		return Symbol.CROSS;
+    	}
+    	checksum=0;
+    	for (int i=0;i<3;i++) {
+    		if (field[2-i][i]==Symbol.CIRCLE) {
+    			checksum++;
+    		}else if (field[2-i][i]==Symbol.CROSS) {
+    			checksum--;
+    		}
+    	}
+    	
+    	if (checksum==3) {
+    		return Symbol.CIRCLE;
+    	}else if (checksum==-3) {
+    		return Symbol.CROSS;
+    	}else {
+    		return Symbol.NONE;
+    	}
+    }
 
     
     /**
