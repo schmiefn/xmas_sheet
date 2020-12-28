@@ -10,7 +10,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 /**
- * 
+ * Class that represents the game window. The game windows contains a 3x3 Matrix of Tiles and a status box at the bottom.
+ * The content of the status box can be changed.
  */
 public class TicTacToeFrame extends Parent {
 
@@ -26,15 +27,17 @@ public class TicTacToeFrame extends Parent {
     public TicTacToeFrame(final TicTacToeGame game) {
         super();
         this.game = game;
-        getChildren().add(generateRootNode());
+        getChildren().add(initializeFrame());
     }
 
     /**
      * Generates a sample JavaFX {@link Parent} object which displays two texts: "Hello Santa" and "Hohoho".
+     * The frame (or call it windows) is setup here.
+     * 
      * 
      * @return Generates {@link Parent} object.
      */
-    private Parent generateRootNode() {
+    private Parent initializeFrame() {
         // TODO: This is sample code and not needed for the exercise in general.
         //       It is just here to demonstrate a basic use case of JavaFX.
         root = new BorderPane();
@@ -63,6 +66,10 @@ public class TicTacToeFrame extends Parent {
         return root;
     }
     
+    /**
+     * Sets the text of the message box at the bottom of the window
+     * @param message The message that will be displayed by the UI. Do not make this message too long!
+     */
     public void writeMessageOnUI (final String message) {
     	statusBox.setText(message);
     }

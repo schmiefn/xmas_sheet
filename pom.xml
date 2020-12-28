@@ -3,7 +3,7 @@
 
 	<groupId>de.unistuttgart.iste.rss.oo.tictactoe</groupId>
 	<artifactId>xmas-sheet-tictactoe</artifactId>
-	<name>TicTacToe XMas Sheet</name>
+	<name>TicTacToe XMas Sheet Advanced Template</name>
 	<version>1.0.0</version>
 
 	<properties>

@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Main class which starts the app.
+ * Main class which starts the app.Frame title, size and some other settings are implemented here. Do not change this class!
  */
 public class App extends Application {
 
