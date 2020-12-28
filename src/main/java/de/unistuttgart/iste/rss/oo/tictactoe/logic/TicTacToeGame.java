@@ -151,13 +151,7 @@ public class TicTacToeGame {
     }
     
     private Symbol getDominantSymbolInDiagonal() {
-    	int checksum = 0;
-    	for (int i=0;i<3;i++) {
-    		if (field[i][i]==Symbol.CIRCLE) {
-    			checksum++;
-    		}else if (field[i][i]==Symbol.CROSS) {
-    			checksum--;
-    		}
+    	
     	}
     	
     	if (checksum==3) {
